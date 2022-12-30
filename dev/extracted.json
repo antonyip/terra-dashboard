@@ -1,0 +1,25 @@
+{
+  "data": {
+    "dataQuery": {
+      "id": "9e90c8b3-cbdc-4d1d-971f-522b5c15459d",
+      "name": "✅ transactions: TPS",
+      "statement": "with info as (\nselect \n  date_trunc('hour', block_timestamp) as hour,\n  count(distinct tx_id) as \"tx count\",\n  \"tx count\"/3600 as tps\nfrom terra.core.fact_transactions\ngroup by 1\n),\nfinal_tps as (\nSELECT\n  date_trunc('week', hour) as \"Day\",\n  avg(tps) as \"TPS\"\nfrom info\ngroup by 1\norder by 1 asc\n),\navg_info as (\nselect avg(\"TPS\") as \"AVG TPS\"\nfrom final_tps\n)\nselect *\nfrom final_tps, avg_info\norder by \"Day\"",
+      "lastSuccessfulRun": {
+        "id": "0d363645-6819-4708-a4c5-9372ed834430",
+        "status": "finished",
+        "results": null,
+        "columnLabels": null,
+        "columnTypes": ["timestamp", "number", "number"],
+        "queryId": "9e90c8b3-cbdc-4d1d-971f-522b5c15459d",
+        "message": null,
+        "createdAt": "2022-12-07T22:24:47.762Z",
+        "updatedAt": "2022-12-07T22:24:52.805Z",
+        "startedAt": "2022-12-07T22:24:48.121Z",
+        "endedAt": "2022-12-07T22:24:52.709Z",
+        "__typename": "QueryRun"
+      },
+      "parameters": [],
+      "__typename": "DataQuery"
+    }
+  }
+}

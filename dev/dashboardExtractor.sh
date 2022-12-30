@@ -1,0 +1,17 @@
+curl 'https://node-api.flipsidecrypto.com/' \
+  -H 'authority: node-api.flipsidecrypto.com' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9,zh-CN;q=0.8,zh;q=0.7' \
+  -H 'authorization;' \
+  -H 'content-type: application/json' \
+  -H 'origin: https://app.flipsidecrypto.com' \
+  -H 'referer: https://app.flipsidecrypto.com/' \
+  -H 'sec-ch-ua: "Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: same-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36' \
+  --data-raw '{"query":"query DashboardQueryRunById($id: ID\u0021) {  dataQuery(id: $id) {    id    name    statement    lastSuccessfulRun {      ...QueryRunFields      __typename    }    parameters {      id      name      type      value      restrictedValues      __typename    }    __typename  }}fragment QueryRunFields on QueryRun {  id  status  results  columnLabels  columnTypes  results  queryId  message  createdAt  updatedAt  startedAt  endedAt}","operationName":"DashboardQueryRunById","variables":{"id":"9e90c8b3-cbdc-4d1d-971f-522b5c15459d"}}' \
+  --compressed
