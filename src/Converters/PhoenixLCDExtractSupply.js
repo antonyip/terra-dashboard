@@ -1,4 +1,3 @@
-import NumberWithCommas from "./NumberWithCommars";
 function PhoenixLCDExtractSupply(data) {
 
     const array = data.supply
@@ -7,11 +6,11 @@ function PhoenixLCDExtractSupply(data) {
         //console.log(element);
         if (element.denom === 'uluna')
         {
-            return NumberWithCommas(element.amount)
+            return (element.amount)
         }
     }
 
-    return '1,051,017,414,895,772'
+    return 1051017414895772
 }
 
 export default PhoenixLCDExtractSupply;
