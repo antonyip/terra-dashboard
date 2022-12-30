@@ -7,7 +7,7 @@ export default function AboutPage() {
     <div></div>
     <br />
     <div>You can find the sources of this project at... </div>
-    <div><a href="http://antonyip.com" target="_blank" rel="noreferrer">Link to Github</a></div>
+    <div><a href="https://github.com/antonyip/terra-dashboard" target="_blank" rel="noreferrer">Link to Github</a></div>
     <br />
     <div>Visit the organizations that motivated me to build this site! </div>
     <div><a href="https://flipsidecrypto.xyz" target="_blank" rel="noreferrer">FlipsideCrypto</a></div>
