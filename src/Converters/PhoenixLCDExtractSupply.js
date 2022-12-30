@@ -6,11 +6,11 @@ function PhoenixLCDExtractSupply(data) {
         //console.log(element);
         if (element.denom === 'uluna')
         {
-            return (element.amount)
+            return (element.amount/1000000)
         }
     }
 
-    return 1051017414895772
+    return 1051017414.895772
 }
 
 export default PhoenixLCDExtractSupply;

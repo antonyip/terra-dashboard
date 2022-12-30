@@ -23,13 +23,13 @@ export default function SummaryPage() {
     "2022-12-29 22:58:56"
   );
   const [TerraLunaSupplyData, setTerraLunaSupplyData] =
-    useState(1051017414895772);
+    useState(1051017414);
   const [TerraLunaSupplyCirculatingData, setTerraLunaSupplyCirculatingData] =
-    useState(NumberWithCommas(187324501264677));
+    useState(187324501);
   const [TerraLunaStakingRateData, setTerraLunaStakingRateData] =
     useState("10.634%");
   const [TerraLunaStakedData, setTerraLunaStakedData] =
-    useState(522556056919243);
+    useState(522556056);
 
   useEffect(() => {
     TerraSummary().then((res) => setTerraPriceData(CoinGeckoExtractPrice(res)));
@@ -41,13 +41,13 @@ export default function SummaryPage() {
       setTerraLunaSupplyData(PhoenixLCDExtractSupply(res))
     );
     TerraLCDSupplyCirculating().then((res) =>
-      setTerraLunaSupplyCirculatingData(NumberWithCommas(res))
+      setTerraLunaSupplyCirculatingData(res)
     );
     TerraLCDStakingReturns().then((res) =>
       setTerraLunaStakingRateData(PhoenixLCDExtractStakingRate(res))
     );
     TerraLCDStaked().then((res) => {
-      setTerraLunaStakedData(res.pool.bonded_tokens);
+      setTerraLunaStakedData(res.pool.bonded_tokens/1000000);
     });
   }, []);
 
@@ -78,20 +78,20 @@ export default function SummaryPage() {
         <Grid item xs={12} md={6} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Luna Total Supply"
-            chartValue={NumberWithCommas(TerraLunaSupplyData)}
+            chartValue={NumberWithCommas(Math.round(TerraLunaSupplyData))}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Luna Circulating Supply"
-            chartValue={TerraLunaSupplyCirculatingData}
+            chartValue={NumberWithCommas(Math.round(TerraLunaSupplyCirculatingData))}
           ></SingleDigitDisplay>
         </Grid>
 
         <Grid item xs={12} md={4} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Luna Staked"
-            chartValue={NumberWithCommas(TerraLunaStakedData)}
+            chartValue={NumberWithCommas(Math.round(TerraLunaStakedData))}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={4} sx={{ p: 1 }}>
