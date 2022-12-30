@@ -13,7 +13,7 @@ import EmptyChart from "./EmptyChart";
 
 import { CHARTCOLORS } from "../Constants/Colors";
 import SQLButton from "./SQLButton";
-import CSVButton from "./CSVButton";
+import JSONButton from "./JSONButton";
 import {
   Grid,
   Typography,
@@ -22,6 +22,8 @@ import {
   ButtonGroup,
 } from "@mui/material";
 import { Spinner } from "reactstrap";
+
+
 
 ChartJS.register(
   CategoryScale,
@@ -60,7 +62,7 @@ const TimeBarChart = ({
                 aria-label="outlined primary button group"
               >
                 <SQLButton sqlLink="asdad"></SQLButton>
-                <CSVButton sqlLink="asdad"></CSVButton>
+                <JSONButton jsonData={{error: "Chart Not Loaded Yet..."}}></JSONButton>
               </ButtonGroup>
             </Grid>
           </Grid>
@@ -128,12 +130,13 @@ const TimeBarChart = ({
             </Typography>
           </Grid>
           <Grid container item xs={2} justifyContent="flex-end">
+          
             <ButtonGroup
               variant="contained"
               aria-label="outlined primary button group"
             >
               <SQLButton sqlLink="asdad"></SQLButton>
-              <CSVButton sqlLink="asdad"></CSVButton>
+              <JSONButton jsonData={chartDataLoad}></JSONButton>
             </ButtonGroup>
           </Grid>
         </Grid>

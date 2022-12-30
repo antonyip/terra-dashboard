@@ -16,7 +16,7 @@ import { Chart } from "react-chartjs-2";
 
 import { CHARTCOLORS } from "../Constants/Colors";
 import SQLButton from "./SQLButton";
-import CSVButton from "./CSVButton";
+import JSONButton from "./JSONButton";
 import {
   Grid,
   Typography,
@@ -66,7 +66,7 @@ const MultiAxisBarLineChart = ({
               aria-label="outlined primary button group"
             >
               <SQLButton sqlLink="asdad"></SQLButton>
-              <CSVButton sqlLink="asdad"></CSVButton>
+              <JSONButton jsonData={{error: "Chart Not Loaded Yet..."}}></JSONButton>
             </ButtonGroup>
           </Grid>
         </Grid>
@@ -156,7 +156,7 @@ const MultiAxisBarLineChart = ({
               aria-label="outlined primary button group"
             >
               <SQLButton sqlLink="asdad"></SQLButton>
-              <CSVButton sqlLink="asdad"></CSVButton>
+              <JSONButton jsonData={chartDataLoad}></JSONButton>
             </ButtonGroup>
           </Grid>
         </Grid>
