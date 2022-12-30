@@ -1,5 +1,6 @@
+import NumberWithCommas from "./NumberWithCommars";
 function PhoenixLCDExtractBlock(data) {
-    return data.block.header.height
+    return NumberWithCommas(data.block.header.height);
 }
 
 export default PhoenixLCDExtractBlock;

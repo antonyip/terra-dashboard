@@ -17,7 +17,15 @@ import { Chart } from "react-chartjs-2";
 import { CHARTCOLORS } from "../Constants/Colors";
 import SQLButton from "./SQLButton";
 import CSVButton from "./CSVButton";
-import { Grid, Typography, Card, CardContent, ButtonGroup } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Card,
+  CardContent,
+  ButtonGroup,
+} from "@mui/material";
+import { Spinner } from "reactstrap";
+import EmptyChart from "./EmptyChart";
 
 ChartJS.register(
   LinearScale,
@@ -33,12 +41,47 @@ ChartJS.register(
 );
 
 const MultiAxisBarLineChart = ({
+  chartDataLoad,
+  chartSwapYAxis,
   chartTitle,
-  chartXAxisData,
-  chartYAxisData,
   chartYAxisLabel,
   chartBackgroundColors,
 }) => {
+  if (!chartDataLoad) {
+    return (
+      <Card>
+      <CardContent>
+        <Grid container>
+          <Grid item xs={1}>
+          <Spinner></Spinner>
+          </Grid>
+          <Grid item xs={9}>
+            <Typography color={CHARTCOLORS.PRIMARYLIGHT} sx={{ fontSize: 22 }}>
+              {chartTitle}
+            </Typography>
+          </Grid>
+          <Grid container item xs={2} justifyContent="flex-end">
+            <ButtonGroup
+              variant="contained"
+              aria-label="outlined primary button group"
+            >
+              <SQLButton sqlLink="asdad"></SQLButton>
+              <CSVButton sqlLink="asdad"></CSVButton>
+            </ButtonGroup>
+          </Grid>
+        </Grid>
+        <EmptyChart />
+      </CardContent>
+    </Card>
+    );
+  }
+
+  const chartXAxisData = chartDataLoad.xAxis;
+  var chartYAxisData = [chartDataLoad.yAxis, chartDataLoad.yAxis2];
+  if (chartSwapYAxis) {
+    chartYAxisData = [chartDataLoad.yAxis2, chartDataLoad.yAxis];
+  }
+
   const options = {
     responsive: true,
     interaction: {
@@ -103,10 +146,15 @@ const MultiAxisBarLineChart = ({
       <CardContent>
         <Grid container>
           <Grid item xs={10}>
-            <Typography color={CHARTCOLORS.PRIMARYLIGHT} sx={{fontSize:22}}>{chartTitle}</Typography>
+            <Typography color={CHARTCOLORS.PRIMARYLIGHT} sx={{ fontSize: 22 }}>
+              {chartTitle}
+            </Typography>
           </Grid>
           <Grid container item xs={2} justifyContent="flex-end">
-            <ButtonGroup variant="contained" aria-label="outlined primary button group">
+            <ButtonGroup
+              variant="contained"
+              aria-label="outlined primary button group"
+            >
               <SQLButton sqlLink="asdad"></SQLButton>
               <CSVButton sqlLink="asdad"></CSVButton>
             </ButtonGroup>

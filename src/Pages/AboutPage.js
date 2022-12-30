@@ -1,6 +1,6 @@
 export default function AboutPage() {
     return <>
-    <div class="h2">About Me!</div>
+    <div className="h2">About Me!</div>
     <div>Hi! I'm Anton. Just a programmer looking for fun things to do!</div>
     <div><a href="http://antonyip.com" target="_blank" rel="noreferrer">www.antonyip.com</a></div>
     <div><a href="https://twitter.com/msgAnton" target="_blank" rel="noreferrer">@msgAnton</a></div>
