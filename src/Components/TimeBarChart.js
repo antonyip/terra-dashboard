@@ -23,8 +23,6 @@ import {
 } from "@mui/material";
 import { Spinner } from "reactstrap";
 
-
-
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -45,8 +43,8 @@ const TimeBarChart = ({
       <Card>
         <CardContent>
           <Grid container>
-          <Grid item xs={1}>
-            <Spinner />
+            <Grid item xs={1}>
+              <Spinner />
             </Grid>
             <Grid item xs={9}>
               <Typography
@@ -62,7 +60,9 @@ const TimeBarChart = ({
                 aria-label="outlined primary button group"
               >
                 <SQLButton sqlLink="asdad"></SQLButton>
-                <JSONButton jsonData={{error: "Chart Not Loaded Yet..."}}></JSONButton>
+                <JSONButton
+                  jsonData={{ error: "Chart Not Loaded Yet..." }}
+                ></JSONButton>
               </ButtonGroup>
             </Grid>
           </Grid>
@@ -130,13 +130,15 @@ const TimeBarChart = ({
             </Typography>
           </Grid>
           <Grid container item xs={2} justifyContent="flex-end">
-          
             <ButtonGroup
               variant="contained"
               aria-label="outlined primary button group"
             >
               <SQLButton sqlLink="asdad"></SQLButton>
-              <JSONButton jsonData={chartDataLoad}></JSONButton>
+              <JSONButton
+                jsonData={chartDataLoad}
+                jsonFilename={chartTitle + ".json"}
+              ></JSONButton>
             </ButtonGroup>
           </Grid>
         </Grid>

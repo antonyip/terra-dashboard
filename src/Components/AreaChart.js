@@ -17,7 +17,7 @@ import { Line } from "react-chartjs-2";
 
 import { CHARTCOLORS } from "../Constants/Colors";
 import SQLButton from "./SQLButton";
-import CSVButton from "./CSVButton";
+import JSONButton from "./JSONButton";
 import {
   Grid,
   Typography,
@@ -105,7 +105,7 @@ const AreaChart = ({
               aria-label="outlined primary button group"
             >
               <SQLButton sqlLink="asdad"></SQLButton>
-              <CSVButton sqlLink="asdad"></CSVButton>
+              <JSONButton jsonData={chartDataLoad} jsonFilename={chartTitle}></JSONButton>
             </ButtonGroup>
           </Grid>
         </Grid>

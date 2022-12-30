@@ -14,13 +14,6 @@ export default function SummaryPage() {
         TerraTPS().then(res => setTerraTPSData(ConvertToTimeBarChart(res, true)))
     }, [])
 
-    //console.log(`TerraTPSData: ${JSON.stringify(TerraTPSData)}`);
-
-    if (TerraTPSData === undefined)
-    {
-        return <>Loading...</>
-    }
-
     return <>
     <div>SummaryPage</div>
     <Grid container spacing={2}>

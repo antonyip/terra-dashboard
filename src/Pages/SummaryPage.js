@@ -60,18 +60,21 @@ export default function SummaryPage() {
             chartName="Luna Price"
             chartValue={TerraPriceData}
             chartPreValueText="$ "
+            chartSource={"https://api.coingecko.com/api/v3/coins/terra-luna-2?tickers=true&market_data=true&sparkline=true"}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={4} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Terra Latest Block"
             chartValue={TerraLatestBlockData}
+            chartSource={"https://phoenix-lcd.terra.dev/blocks/latest"}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={4} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Last Updated"
             chartValue={TerraLatestTimeData}
+            chartSource={"https://phoenix-lcd.terra.dev/blocks/latest"}
           ></SingleDigitDisplay>
         </Grid>
 
@@ -79,12 +82,14 @@ export default function SummaryPage() {
           <SingleDigitDisplay
             chartName="Luna Total Supply"
             chartValue={NumberWithCommas(Math.round(TerraLunaSupplyData))}
+            chartSource={"https://phoenix-lcd.terra.dev/cosmos/bank/v1beta1/supply"}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={6} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Luna Circulating Supply"
             chartValue={NumberWithCommas(Math.round(TerraLunaSupplyCirculatingData))}
+            chartSource={"https://phoenix-api.terra.dev/balance/circulating-supply"}
           ></SingleDigitDisplay>
         </Grid>
 
@@ -92,12 +97,14 @@ export default function SummaryPage() {
           <SingleDigitDisplay
             chartName="Luna Staked"
             chartValue={NumberWithCommas(Math.round(TerraLunaStakedData))}
+            chartSource={"https://phoenix-lcd.terra.dev/cosmos/staking/v1beta1/pool"}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={4} sx={{ p: 1 }}>
           <SingleDigitDisplay
             chartName="Luna Staking APY"
             chartValue={TerraLunaStakingRateData}
+            chartSource={"https://phoenix-api.terra.dev/chart/staking-return/annualized"}
           ></SingleDigitDisplay>
         </Grid>
         <Grid item xs={12} md={4} sx={{ p: 1 }}>
@@ -107,6 +114,7 @@ export default function SummaryPage() {
               Math.round((TerraLunaStakedData / TerraLunaSupplyData) * 100000) /
               1000 + "%"
             }
+            disableSource={true}
           ></SingleDigitDisplay>
         </Grid>
       </Grid>

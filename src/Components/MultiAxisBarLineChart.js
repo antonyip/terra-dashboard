@@ -50,29 +50,34 @@ const MultiAxisBarLineChart = ({
   if (!chartDataLoad) {
     return (
       <Card>
-      <CardContent>
-        <Grid container>
-          <Grid item xs={1}>
-          <Spinner></Spinner>
+        <CardContent>
+          <Grid container>
+            <Grid item xs={1}>
+              <Spinner></Spinner>
+            </Grid>
+            <Grid item xs={9}>
+              <Typography
+                color={CHARTCOLORS.PRIMARYLIGHT}
+                sx={{ fontSize: 22 }}
+              >
+                {chartTitle}
+              </Typography>
+            </Grid>
+            <Grid container item xs={2} justifyContent="flex-end">
+              <ButtonGroup
+                variant="contained"
+                aria-label="outlined primary button group"
+              >
+                <SQLButton sqlLink="asdad"></SQLButton>
+                <JSONButton
+                  jsonData={{ error: "Chart Not Loaded Yet..." }}
+                ></JSONButton>
+              </ButtonGroup>
+            </Grid>
           </Grid>
-          <Grid item xs={9}>
-            <Typography color={CHARTCOLORS.PRIMARYLIGHT} sx={{ fontSize: 22 }}>
-              {chartTitle}
-            </Typography>
-          </Grid>
-          <Grid container item xs={2} justifyContent="flex-end">
-            <ButtonGroup
-              variant="contained"
-              aria-label="outlined primary button group"
-            >
-              <SQLButton sqlLink="asdad"></SQLButton>
-              <JSONButton jsonData={{error: "Chart Not Loaded Yet..."}}></JSONButton>
-            </ButtonGroup>
-          </Grid>
-        </Grid>
-        <EmptyChart />
-      </CardContent>
-    </Card>
+          <EmptyChart />
+        </CardContent>
+      </Card>
     );
   }
 
@@ -156,7 +161,10 @@ const MultiAxisBarLineChart = ({
               aria-label="outlined primary button group"
             >
               <SQLButton sqlLink="asdad"></SQLButton>
-              <JSONButton jsonData={chartDataLoad}></JSONButton>
+              <JSONButton
+                jsonData={chartDataLoad}
+                jsonFilename={chartTitle + ".json"}
+              ></JSONButton>
             </ButtonGroup>
           </Grid>
         </Grid>
