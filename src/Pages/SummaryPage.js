@@ -31,6 +31,12 @@ export default function SummaryPage() {
   const [TerraLunaStakedData, setTerraLunaStakedData] =
     useState(522556056);
 
+  const [_internalTimer, _setInternalTimer] = useState(1);
+
+  useEffect(() => {
+    setInterval(() => {_setInternalTimer(Math.random())}, 1000); // updates every 1 second
+  },[]);
+
   useEffect(() => {
     TerraSummary().then((res) => setTerraPriceData(CoinGeckoExtractPrice(res)));
     TerraLatestBlock().then((res) => {
@@ -49,7 +55,7 @@ export default function SummaryPage() {
     TerraLCDStaked().then((res) => {
       setTerraLunaStakedData(res.pool.bonded_tokens/1000000);
     });
-  }, []);
+  }, [_internalTimer]);
 
   return (
     <>
