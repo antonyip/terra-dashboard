@@ -2,7 +2,6 @@ import {
     Button,
     Typography,
  } from "@mui/material";
-import { CHARTCOLORS } from "../Constants/Colors";
 
 function SourceButton({sqlLink}) {
     return (
@@ -12,4 +11,4 @@ function SourceButton({sqlLink}) {
   );
 };
 
-export default SourceButton;
+export default SourceButton; 

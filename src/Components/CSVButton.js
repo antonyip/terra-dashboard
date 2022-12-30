@@ -2,7 +2,6 @@ import {
     Button,
     Typography,
  } from "@mui/material";
-import { CHARTCOLORS } from "../Constants/Colors";
 
 function CSVButton({sqlLink}) {
     return (
