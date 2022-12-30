@@ -37,6 +37,7 @@ const TimeBarChart = ({
   chartTitle,
   chartYAxisLabel,
   chartBackgroundColors,
+  chartQuery,
 }) => {
   if (!chartDataLoad) {
     return (
@@ -59,7 +60,7 @@ const TimeBarChart = ({
                 variant="contained"
                 aria-label="outlined primary button group"
               >
-                <SQLButton sqlLink="asdad"></SQLButton>
+                <SQLButton sqlQuery={chartQuery}></SQLButton>
                 <JSONButton
                   jsonData={{ error: "Chart Not Loaded Yet..." }}
                 ></JSONButton>
@@ -134,7 +135,7 @@ const TimeBarChart = ({
               variant="contained"
               aria-label="outlined primary button group"
             >
-              <SQLButton sqlLink="asdad"></SQLButton>
+              <SQLButton sqlQuery={chartQuery}></SQLButton>
               <JSONButton
                 jsonData={chartDataLoad}
                 jsonFilename={chartTitle + ".json"}

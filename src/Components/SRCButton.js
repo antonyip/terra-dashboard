@@ -1,9 +1,12 @@
 import { Info } from "@mui/icons-material";
-import { IconButton, Tooltip } from "@mui/material";
+import {
+  IconButton,
+  Tooltip,
+} from "@mui/material";
 
-function SourceButton({ srcLink }) {
+function SRCButton({ srcLink }) {
   return (
-    <Tooltip title={srcLink || 'undefined'}>
+    <Tooltip title={srcLink || "undefined"}>
       <IconButton
         color="secondary"
         aria-label="add an alarm"
@@ -19,4 +22,4 @@ function SourceButton({ srcLink }) {
   );
 }
 
-export default SourceButton;
+export default SRCButton;

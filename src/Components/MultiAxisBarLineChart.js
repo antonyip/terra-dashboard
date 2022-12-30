@@ -45,6 +45,7 @@ const MultiAxisBarLineChart = ({
   chartSwapYAxis,
   chartTitle,
   chartYAxisLabel,
+  chartQuery,
   chartBackgroundColors,
 }) => {
   if (!chartDataLoad) {
@@ -68,7 +69,7 @@ const MultiAxisBarLineChart = ({
                 variant="contained"
                 aria-label="outlined primary button group"
               >
-                <SQLButton sqlLink="asdad"></SQLButton>
+                <SQLButton sqlQuery={chartQuery}></SQLButton>
                 <JSONButton
                   jsonData={{ error: "Chart Not Loaded Yet..." }}
                 ></JSONButton>
@@ -160,7 +161,7 @@ const MultiAxisBarLineChart = ({
               variant="contained"
               aria-label="outlined primary button group"
             >
-              <SQLButton sqlLink="asdad"></SQLButton>
+              <SQLButton sqlQuery={chartQuery}></SQLButton>
               <JSONButton
                 jsonData={chartDataLoad}
                 jsonFilename={chartTitle + ".json"}

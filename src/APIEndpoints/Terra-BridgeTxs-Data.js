@@ -1,9 +1,7 @@
-import axios from 'axios'
+import axios from "axios";
 
-async function TerraBridgedTxs() {
-  const res = await axios.post("https://flipside-api.antonyip.com/getCachedQuery",{
-      query: `
-      select
+const myQuery = `
+select
   date_trunc('week', block_timestamp) as "Day",
   case
     when message_value:receiver ilike '%kujira%' then 'Kujira'
@@ -34,11 +32,18 @@ group by
   2
 order by
   1
-          `,
-      },
-  )
+`;
+
+export async function TerraBridgedTxs() {
+  const res = await axios.post(
+    "https://flipside-api.antonyip.com/getCachedQuery",
+    {
+      query: myQuery,
+    }
+  );
   return res.data;
 }
 
-export default TerraBridgedTxs
-
+export function TerraBridgedTxsQuery() {
+  return myQuery
+}

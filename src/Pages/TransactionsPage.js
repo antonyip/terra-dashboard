@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import MultiAxisBarLineChart from "../Components/MultiAxisBarLineChart"
-import TerraTPS from "../APIEndpoints/Terra-TPS-Data"
-import TerraBlocktime from "../APIEndpoints/Terra-Blocktime-Data"
-import TerraFees from "../APIEndpoints/Terra-Fees-Data"
-import TerraTxSuccessRate from "../APIEndpoints/Terra-Tx-Success-Data"
+import {TerraTPS, TerraTPSQuery} from "../APIEndpoints/Terra-TPS-Data"
+import {TerraBlocktime, TerraBlocktimeQuery} from "../APIEndpoints/Terra-Blocktime-Data"
+import {TerraFees, TerraFeesQuery} from "../APIEndpoints/Terra-Fees-Data"
+import {TerraTxSuccessRate, TerraTxSuccessRateQuery} from "../APIEndpoints/Terra-Tx-Success-Data"
 import ConvertToMultiAxisBarLineChart from "../Converters/ConvertToMultiAxisBarLineChart"
 import { Grid } from "@mui/material"
 import { CHARTCOLORS } from "../Constants/Colors"
@@ -29,6 +29,7 @@ export default function TransactionsPage() {
                 chartDataLoad={TerraTPSData}
                 chartSwapYAxis={true}
                 chartTitle={"Transaction Speed"}
+                chartQuery={TerraTPSQuery()}
                 chartBackgroundColors={[CHARTCOLORS.SECONDARY, CHARTCOLORS.PRIMARYLIGHT]}
                 chartYAxisLabel={["Transactions Per Second", "Tx Count"]}
             ></MultiAxisBarLineChart>
@@ -37,6 +38,7 @@ export default function TransactionsPage() {
             <MultiAxisBarLineChart
                 chartDataLoad={TerraBlocktimeData}
                 chartTitle={"Blockchain Speed"}
+                chartQuery={TerraBlocktimeQuery()}
                 chartBackgroundColors={[CHARTCOLORS.SECONDARY, CHARTCOLORS.PRIMARYLIGHT]}
                 chartYAxisLabel={["Average Blocktime", "Number of Blocks Per Week"]}
             ></MultiAxisBarLineChart>
@@ -46,6 +48,7 @@ export default function TransactionsPage() {
                 chartDataLoad={TerraFeeData}
                 chartSwapYAxis={true}
                 chartTitle={"Protocol Earnings"}
+                chartQuery={TerraFeesQuery()}
                 chartBackgroundColors={[CHARTCOLORS.SECONDARY, CHARTCOLORS.PRIMARYLIGHT]}
                 chartYAxisLabel={["Average Fees Per Transaction Per Week", "Total Fees Per Week"]}
             ></MultiAxisBarLineChart>
@@ -55,6 +58,7 @@ export default function TransactionsPage() {
                 chartDataLoad={TerraTxRateData}
                 chartSwapYAxis={true}
                 chartTitle={"Transaction Success Rate"}
+                chartQuery={TerraTxSuccessRateQuery()}
                 chartBackgroundColors={[CHARTCOLORS.SECONDARY, CHARTCOLORS.PRIMARYLIGHT]}
                 chartYAxisLabel={["Average Tx Success Rate", "Weekly Tx Success Rate"]}
             ></MultiAxisBarLineChart>
