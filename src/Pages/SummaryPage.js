@@ -34,7 +34,7 @@ export default function SummaryPage() {
   const [_internalTimer, _setInternalTimer] = useState(1);
 
   useEffect(() => {
-    setInterval(() => {_setInternalTimer(Math.random())}, 1000); // updates every 1 second
+    setInterval(() => {_setInternalTimer(Math.random())}, 10000); // updates every 10 second
   },[]);
 
   useEffect(() => {
